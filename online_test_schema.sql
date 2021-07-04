@@ -1,8 +1,9 @@
 --Creating Database and schemas 
 
-create database online_test;
+-- first run this code separately in query tool:- create database online_test;
 
-use database online_test_schema;
+-- then open query tool for online_test database and run this following sql code
+
 
 CREATE SCHEMA online_test_schema;
 
@@ -69,7 +70,7 @@ CREATE TABLE online_test_schema.student_phno
 
 CREATE TABLE online_test_schema.teacher
 (
-    teacher_id integer NOT NULL DEFAULT nextval('online_test_schema.teacher_teacher_id_seq'::regclass),
+    teacher_id serial NOT NULL ,
     t_name character varying(100) COLLATE pg_catalog."default" NOT NULL,
     t_address character varying(150) COLLATE pg_catalog."default",
     t_email character varying(320) COLLATE pg_catalog."default" NOT NULL,
@@ -133,7 +134,7 @@ CREATE TABLE online_test_schema.module_pre_requisite
 
 CREATE TABLE online_test_schema.exam
 (
-    exam_id integer NOT NULL DEFAULT nextval('online_test_schema.exam_exam_id_seq'::regclass),
+    exam_id serial NOT NULL,
     time_ time without time zone NOT NULL,
     exam_type character varying(50) COLLATE pg_catalog."default",
     no_of_question integer NOT NULL,
@@ -144,7 +145,7 @@ CREATE TABLE online_test_schema.exam
 
 CREATE TABLE online_test_schema.question
 (
-    question_id integer NOT NULL DEFAULT nextval('online_test_schema.question_question_id_seq'::regclass),
+    question_id serial NOT NULL ,
     question character varying(200) COLLATE pg_catalog."default",
     ans_a character varying(200) COLLATE pg_catalog."default",
     ans_b character varying(200) COLLATE pg_catalog."default",
