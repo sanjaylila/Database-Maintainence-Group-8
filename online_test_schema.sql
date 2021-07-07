@@ -258,7 +258,29 @@ CREATE TABLE online_test_schema.r_exam_module
         ON DELETE NO ACTION
 );
 
+-- Change in type and validation
 
+ALTER TABLE online_test_schema.ans_sheet
+    VALIDATE CONSTRAINT ans_sheet_student_id_fkey;
 
+alter table online_test_schema.student_phno 
+    alter column s_phoneno type varchar(12);
 
+alter table online_test_schema.teacher_phno 
+    alter column t_phoneno type varchar(12);
 
+alter table online_test_schema.administrator_phno 
+    alter column a_phoneno type varchar(12);
+
+/*
+    Dont run this is not finalised till now
+    
+ALTER TABLE online_test_schema.administrator
+    ALTER COLUMN a_password TYPE text ;
+
+alter table online_test_schema.student
+    ALTER COLUMN s_password TYPE text ;
+
+alter table online_test_schema.teacher
+    ALTER COLUMN t_password TYPE text ;
+*/
